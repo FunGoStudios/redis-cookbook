@@ -1,0 +1,6 @@
+wget http://redis.googlecode.com/files/redis-<%= @version %>.tar.gz
+tar xzf redis-<%= @version %>.tar.gz
+cd redis-<%= @version%>
+./configure
+make
+make install

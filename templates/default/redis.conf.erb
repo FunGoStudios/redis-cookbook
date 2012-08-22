@@ -1,0 +1,39 @@
+daemonize no
+
+pidfile /var/run/redis.pid
+
+port <%= @port %>
+<% if @bind_address %>
+bind <%= @bind_address %>
+<% end %>
+timeout 300
+
+loglevel notice
+logfile <%= File.join(@log_dir, 'redis.log') %>
+
+databases 1
+
+save 900 1
+save 300 10
+save 60 10000
+
+rdbcompression yes
+dbfilename dump.rdb
+
+dir <%= @data_dir %>
+
+appendonly no
+
+slowlog-log-slower-than 10000
+slowlog-max-len 1024
+
+vm-enabled no
+vm-swap-file /tmp/redis.swap
+vm-max-memory 0
+vm-page-size 32
+vm-pages 134217728
+vm-max-threads 4
+
+<% @include_files.each do |f| %>
+include <%= f %>
+<% end %>
