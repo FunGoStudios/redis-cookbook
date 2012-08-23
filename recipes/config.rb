@@ -2,7 +2,7 @@ template "#{node[:redis][:config_dir]}/redis.conf" do
   source 'redis.conf.erb'
   user node[:redis][:user]
   mode '0644'
-  variable({
+  variables({
     :log_dir => node[:redis][:log_dir],
     :data_dir => node[:redis][:data_dir],
     :port => node[:redis][:port],
