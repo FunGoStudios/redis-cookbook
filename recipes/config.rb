@@ -14,8 +14,8 @@ end
 template '/etc/init/redis.conf' do
   source 'redis.conf.upstart.erb'
   mode '0644'
-  variable({
-    :user => node[:redis][:user]
+  variables({
+    :user => node[:redis][:user],
     :config_dir => node[:redis][:config_dir]
   })
 end
