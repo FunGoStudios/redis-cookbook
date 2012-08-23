@@ -10,7 +10,7 @@ end
 template '/tmp/build_and_install.sh' do
   source 'build_and_install.sh.erb'
   mode '0755'
-  variable({:version => node[:redis][:version]})
+  variables({:version => node[:redis][:version]})
 end
 
 bash 'compile and install redis' do
