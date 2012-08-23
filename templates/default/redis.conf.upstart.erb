@@ -3,6 +3,6 @@ description "Redis server"
 start on runlevel [23]
 stop on shutdown
 
-exec sudo -u <%= @user %> /usr/local/bin/redis-server <%= File.join(@confi_dir, 'redis.conf') %>
+exec sudo -u <%= @user %> /usr/local/bin/redis-server <%= File.join(@config_dir, 'redis.conf') %>
 
 respawn
